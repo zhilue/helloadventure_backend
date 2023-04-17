@@ -1,0 +1,54 @@
+Guest user login
+
+username = input()
+password = input()
+
+cursor = conn.cursor()
+query = 'SELECT * FROM guest WHERE email = %s and password = %s'
+cursor.execute(query, (username, password))
+data = cursor.fetchone()
+error = None
+cursor.close()
+
+if(data):
+	xxx
+else:
+	error = "Invalid username or password"
+
+
+
+Admin user login
+
+username = input()
+password = input()
+
+cursor = conn.cursor()
+query = 'SELECT * FROM admin WHERE email = %s and password = %s'
+cursor.execute(query, (username, password))
+data = cursor.fetchone()
+error = None
+cursor.close()
+
+if(data):
+	xxx
+else:
+	error = "Invalid username or password"
+
+
+
+Student user login
+
+username = input()
+password = input()
+
+cursor = conn.cursor()
+query = 'SELECT * FROM student WHERE email = %s and password = %s'
+cursor.execute(query, (username, password))
+data = cursor.fetchone()
+error = None
+cursor.close()
+
+if(data):
+	xxx
+else:
+	error = "Invalid username or password"

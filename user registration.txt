@@ -1,0 +1,65 @@
+Guest user registration(id, email, username, password, character_feature?, progress)
+
+id = xxx
+email = input()
+user_name = input()
+password = input()
+
+cursor = conn.cursor()
+query = 'SELECT * FROM guest WHERE email = %s'  #this will return the first row in the table
+cursor.execute(query,(email))
+data = cursor.fetchone()
+
+if(data):
+	error = "User already exists"
+else:
+	ins = 'INSERT INTO guest VALUES(%s, %s, %s, %s, null, null)'
+	cursor.execute(ins, (id, email, user_name, password))
+	conn.commit()
+	cursor.close()
+
+
+
+Admin user registration(id, email, username, password, student_group)
+
+id = xxx
+email = input()
+user_name = input()
+password = input()
+student_group = input()
+
+cursor = conn.cursor()
+query = 'SELECT * FROM admin WHERE email = %s'  #this will return the first row in the table
+cursor.execute(query,(email))
+data = cursor.fetchone()
+
+if(data):
+	error = "User already exists"
+else:
+	ins = 'INSERT INTO admin VALUES(%s, %s, %s, %s, %s)'
+	cursor.execute(ins, (id, email, user_name, password, student_group))
+	conn.commit()
+	cursor.close()
+
+
+
+Student user registration(id, email, username, password, char_feature? Progress, student_group)
+
+id = xxx
+email = input()
+user_name = input()
+password = input()
+
+
+cursor = conn.cursor()
+query = 'SELECT * FROM student WHERE email = %s'  #this will return the first row in the table
+cursor.execute(query,(email))
+data = cursor.fetchone()
+
+if(data):
+	error = "User already exists"
+else:
+	ins = 'INSERT INTO student VALUES(%s, %s, %s, %s, null, null, null)'
+	cursor.execute(ins, (id, email, user_name, password))
+	conn.commit()
+	cursor.close()
