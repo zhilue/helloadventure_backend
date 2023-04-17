@@ -4,14 +4,14 @@ username = input()
 password = input()
 
 cursor = conn.cursor()
-query = 'SELECT * FROM guest WHERE email = %s and password = %s'
+query = 'SELECT * FROM guest WHERE email = %s and password = %s'   
 cursor.execute(query, (username, password))
-data = cursor.fetchone()
+data = cursor.fetchone()	#this will return the first row of the table
 error = None
 cursor.close()
 
 if(data):
-	xxx
+	xxx     #proceed to next step
 else:
 	error = "Invalid username or password"
 
