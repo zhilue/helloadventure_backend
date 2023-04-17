@@ -1,4 +1,4 @@
-Guest user registration(id, email, username, password, character_feature?, progress)
+Guest user registration(id, email, username, password, progress)
 
 id = xxx
 email = input()
@@ -14,7 +14,7 @@ error = None
 if(data):
 	error = "User already exists"
 else:
-	ins = 'INSERT INTO guest VALUES(%s, %s, %s, %s, null, null)'
+	ins = 'INSERT INTO guest (ID, EMAIL, USERNAME, PASSWORD, PROGRESS) VALUES(%s, %s, %s, %s, null)'
 	cursor.execute(ins, (id, email, user_name, password))
 	conn.commit()
 	cursor.close()
@@ -38,14 +38,14 @@ error = None
 if(data):
 	error = "User already exists"
 else:
-	ins = 'INSERT INTO admin VALUES(%s, %s, %s, %s, %s)'
+	ins = 'INSERT INTO admin (ID, EMAIL, USERNAME, PASSWORD, STUDENT_GROUP) VALUES(%s, %s, %s, %s, %s)'
 	cursor.execute(ins, (id, email, user_name, password, student_group))
 	conn.commit()
 	cursor.close()
 
 
 
-Student user registration(id, email, username, password, char_feature? Progress, student_group)
+Student user registration(id, email, username, password, Progress, student_group)
 
 id = xxx
 email = input()
@@ -62,7 +62,7 @@ error = None
 if(data):
 	error = "User already exists"
 else:
-	ins = 'INSERT INTO student VALUES(%s, %s, %s, %s, null, null, null)'
+	ins = 'INSERT INTO student (ID, EMAIL, USERNAME, PASSWORD, PROGRESS, STUDENT_GROUP) VALUES(%s, %s, %s, %s, null, null)'
 	cursor.execute(ins, (id, email, user_name, password))
 	conn.commit()
 	cursor.close()
