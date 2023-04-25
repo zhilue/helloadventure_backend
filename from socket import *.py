@@ -67,6 +67,8 @@ def sendOnePing(mySocket, destAddr, ID):
 
     #Code Start
     # Define icmpEchoRequestType and icmpEchoRequestCode, which are both used below
+    icmpEchoRequestType = 
+    icmpEchoRequestCode = 
     #Code End
 
     header = struct.pack("bbHHh", icmpEchoRequestType, icmpEchoRequestCode, myChecksum, ID, 1)
@@ -92,7 +94,7 @@ def doOnePing(destAddr, timeout):
     #SOCK_RAW is a powerful socket type. For more details see: http://sock-raw.ord/papers/sock_raw
 
     #Code Start
-    #Create Socket here
+    mySocket = socket(AF_INET, SOCK_RAW, icmp)
     #Fill in end
 
     myID = os.getpid() & 0xFFFF #Return the current process i 
