@@ -44,6 +44,7 @@ def receiveOnePing(mySocket, ID, timeout, destAddr):
 
         #Code Start
         # Use struct.unpack to get the data that was sent via the struct.pack method below
+        
         #Code End
 
         #Code Start
@@ -67,8 +68,8 @@ def sendOnePing(mySocket, destAddr, ID):
 
     #Code Start
     # Define icmpEchoRequestType and icmpEchoRequestCode, which are both used below
-    icmpEchoRequestType = 
-    icmpEchoRequestCode = 
+    icmpEchoRequestType = 8
+    icmpEchoRequestCode = 0
     #Code End
 
     header = struct.pack("bbHHh", icmpEchoRequestType, icmpEchoRequestCode, myChecksum, ID, 1)
