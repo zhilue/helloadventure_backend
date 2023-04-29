@@ -36,19 +36,23 @@ def receiveOnePing(mySocket, ID, timeout, destAddr):
 
         #Code Start
         # Receive the packet and address from the socket
+        readable ,writeable, exceptional = select.select([mySocket], [], [],  timeLeft)
         #Code End
 
         #Code Start
         # Extract the ICMP header from the IP packet
+        header = ipPacket[20:28]
         #Code End
 
         #Code Start
         # Use struct.unpack to get the data that was sent via the struct.pack method below
-        
+        type, code, myChecksum, myID, sequence = struct.unpack("bbHHh", header)
         #Code End
 
         #Code Start
         # Verify Type/Code is an ICMP echo reply
+        if type != 0 or code != 0:
+            return
         #Code End
 
         #Code Start
